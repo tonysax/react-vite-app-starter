@@ -55,7 +55,7 @@ export default tseslint.config({
 })
 ```
 
-## Prettier + Vitest + React Test Tools
+## Prettier + Vitest + React Test Tools + MSW
 
 ```bash
 npm i -D -E prettier
@@ -167,4 +167,10 @@ export default defineConfig({
     "editor.formatOnSaveMode": "file", // required to format on save
     "files.autoSave": "onFocusChange" // optional but recommended
 }
+```
+
+## MSW
+
+```bash
+npm install -D msw@latest
 ```
