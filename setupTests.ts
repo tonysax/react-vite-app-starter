@@ -8,7 +8,7 @@ beforeAll(() => {
 })
 
 beforeEach(() => {
-    window.localStorage.clear()
+    localStorage.clear()
 })
 
 // runs a clean after each test case (e.g. clearing jsdom)
