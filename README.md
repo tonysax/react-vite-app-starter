@@ -59,8 +59,23 @@ export default tseslint.config({
 
 ```bash
 npm i -D -E prettier
-=> prettier.config.js to create
 npm i -D eslint-config-prettier eslint-plugin-prettier eslint-plugin-import
+```
+
+```js
+// prettier.config.js, .prettierrc.js, prettier.config.cjs, or .prettierrc.cjs
+/**
+ * @see https://prettier.io/docs/en/configuration.html
+ * @type {import("prettier").Config}
+ */
+const config = {
+    trailingComma: 'es5',
+    tabWidth: 4,
+    semi: false,
+    singleQuote: true,
+}
+
+export default config
 ```
 
 ```js
@@ -117,12 +132,7 @@ export default defineConfig({
         setupFiles: 'setupTests.ts',
         coverage: {
             include: ['src/**/*'],
-            exclude: [
-                'src/mocks',
-                'src/vite-env.d.ts',
-                'src/main.tsx',
-                'src/**/*.test.ts',
-            ],
+            exclude: ['src/vite-env.d.ts', 'src/main.tsx', 'src/**/*.test.ts'],
         },
     },
 })
