@@ -138,7 +138,20 @@ export default defineConfig({
 })
 ```
 
-VS Code Settings
+### Update package json
+
+```json
+// package.json
+  "scripts": {
+    // new
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+```
+
+## VS Code Settings
 
 ```json
 // .vscode/settings.json
@@ -154,15 +167,4 @@ VS Code Settings
     "editor.formatOnSaveMode": "file", // required to format on save
     "files.autoSave": "onFocusChange" // optional but recommended
 }
-```
-
-```json
-// package.json
-  "scripts": {
-    // new
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "test": "vitest",
-    "test:coverage": "vitest run --coverage"
-  },
 ```
