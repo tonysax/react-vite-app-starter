@@ -1,4 +1,4 @@
-# React + TypeScript + Vite + Prettier + ESLint + Vitest + Reaxt Test Tools
+# React + TypeScript + Vite + Prettier + ESLint + Vitest + React Test Tools
 
 ```bash
 npm create vite@latest react-vite-app-starter -- --template react-ts
