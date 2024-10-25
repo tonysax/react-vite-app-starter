@@ -2,12 +2,11 @@ import { StrictMode } from 'react'
 import App from './App.tsx'
 import './index.css'
 import ReactDOM from 'react-dom/client'
-import stringToBoolean from '@utils/utils'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 async function enableMocking() {
-    if (stringToBoolean(import.meta.env.VITE_ENABLE_MSW) === false) {
+    if (!import.meta.env.VITE_ENABLE_MSW) {
         return
     }
 
