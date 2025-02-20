@@ -15,7 +15,6 @@
     "msw:init": "npx msw init ./public --save"
   },
   "dependencies": {
-    "nodejs": "^20.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
