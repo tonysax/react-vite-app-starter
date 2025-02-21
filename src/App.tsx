@@ -3,11 +3,26 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { useLocalStorage } from './hooks/useLocalStorage'
 
+async function getUserInfo() {
+  const response = await fetch('/.auth/me');
+  const payload = await response.json();
+  const { clientPrincipal } = payload;
+  return clientPrincipal;
+}
+
+
+
 function App() {
     const [count, setCount] = useLocalStorage('count', 0)
 
     const incrementCount = () =>
         setCount((previousCount: number) => previousCount + 1)
+    let userinfo: string = "notset"
+
+    (async () => {
+        userinfo = (await getUserInfo());
+        })();
+
 
     return (
         <>
@@ -27,11 +42,23 @@ function App() {
             <div className="card">
                 <button
                     onClick={() => {
+
                         incrementCount()
+
+
+
+
                     }}
                 >
                     count is {count}
                 </button>
+
+                <p>
+
+                    { userinfo }
+
+                    
+                </p>
                 <p>
                     Edit <code>src/App.tsx</code> and save to test HMR
                 </p>
