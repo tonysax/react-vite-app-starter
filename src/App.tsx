@@ -20,9 +20,11 @@ function App() {
 
     let userinfo: string = "notset";
 
-    (async () => {
-        userinfo = (await getUserInfo());
-        })();
+   
+    getUserInfo().then((data) => {
+        userinfo = data;
+    });
+   
 
 
     return (
