@@ -18,7 +18,7 @@ function App() {
     const incrementCount = () =>
         setCount((previousCount: number) => previousCount + 1);
 
-    let userinfo: string = "notset";
+    let userinfo: string = "notset1111";
 
    
     getUserInfo().then(
@@ -52,13 +52,19 @@ function App() {
 
                         incrementCount()
 
-                        const response =  fetch('/.auth/me');
-                        response.then(
+                        async function getUserInfo() {
+                         const response = await fetch('/.auth/me');
+                        const payload = await response.json();
+                         const { clientPrincipal } = payload;
+                        return clientPrincipal;
+                        }
 
-                            (data : Response) => { data.json().then(
-                                (jsondata : any) => { userinfo = jsondata },
-                                (error : any) => { userinfo = error } ) }
-                            )
+                        getUserInfo().then(
+        
+                            (data) => {userinfo = data; },
+                            (error) => {userinfo = error;}
+        
+                        )
 
                     }}
                 >
