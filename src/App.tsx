@@ -21,9 +21,13 @@ function App() {
     let userinfo: string = "notset";
 
    
-    getUserInfo().then((data) => {
-        userinfo = data;
-    });
+    getUserInfo().then(
+        
+        (data) => {userinfo = data; console.log(userinfo);},
+        (error) => {userinfo = error;}
+        
+    )
+
    
 
 
