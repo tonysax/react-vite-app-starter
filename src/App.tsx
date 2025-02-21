@@ -16,8 +16,9 @@ function App() {
     const [count, setCount] = useLocalStorage('count', 0)
 
     const incrementCount = () =>
-        setCount((previousCount: number) => previousCount + 1)
-    let userinfo: string = "notset"
+        setCount((previousCount: number) => previousCount + 1);
+
+    let userinfo: string = "notset";
 
     (async () => {
         userinfo = (await getUserInfo());
