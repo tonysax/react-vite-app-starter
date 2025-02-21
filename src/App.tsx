@@ -50,20 +50,26 @@ function App() {
                 <button
                     onClick={() => {
 
-                        incrementCount()
+                        incrementCount();
 
-                        async function getUserInfo() {
-                         const response = await fetch('/.auth/me');
-                        const payload = await response.json();
-                         const { clientPrincipal } = payload;
-                        return clientPrincipal;
+                        async function getUsername() {
+                            // call the endpoint
+                            const response = await fetch('/.auth/me');
+                            // convert to JSON
+                            const json = await response.json();
+                            // ensure clientPrincipal and userDetails exist
+                            if(json.clientPrincipal && json.clientPrincipal.userDetails) {
+                                // return userDetails (the username)
+                                return json.clientPrincipal.userDetails;
+                            } else {
+                                // return null if anonymous
+                                return null;
+                            }
                         }
-
-                        getUserInfo().then(
         
+                        getUsername().then(
                             (data) => {userinfo = data; },
                             (error) => {userinfo = error;}
-        
                         )
 
                     }}
