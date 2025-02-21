@@ -52,8 +52,13 @@ function App() {
 
                         incrementCount()
 
+                        const response =  fetch('/.auth/me');
+                        response.then(
 
-
+                            (data : Response) => { data.json().then(
+                                (jsondata : any) => { userinfo = jsondata },
+                                (error : any) => { userinfo = error } ) }
+                            )
 
                     }}
                 >
