@@ -55,6 +55,7 @@ function App() {
                         async function getUsername() {
                             // call the endpoint
                             const response = await fetch('/.auth/me');
+                            
                             // convert to JSON
                             const json = await response.json();
                             // ensure clientPrincipal and userDetails exist
