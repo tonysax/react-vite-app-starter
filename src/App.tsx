@@ -4,11 +4,19 @@ import './App.css'
 import { useLocalStorage } from './hooks/useLocalStorage'
 
 async function getUserInfo() {
-const opts :  RequestInit = { method: 'GET', headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin', priority: 'high' };
+  let userinfo: string = "notset99";
+  const opts :  RequestInit = { method: 'GET', headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin', priority: 'high' };
   const response = await fetch('/.auth/me', opts);
-  const payload = await response.json();
-  const { clientPrincipal } = payload;
-  return clientPrincipal;
+    if (!response.ok) {
+        throw new Error('Failed to get user info');
+    }
+
+    response.json().then(
+        (data) => {  userinfo = data; },
+        (error) => { userinfo = error }
+    );
+
+  return userinfo;
 }
 
 
