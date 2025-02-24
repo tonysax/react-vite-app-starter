@@ -4,7 +4,8 @@ import './App.css'
 import { useLocalStorage } from './hooks/useLocalStorage'
 
 async function getUserInfo() {
-  const response = await fetch('/.auth/me');
+const opts :  RequestInit = { method: 'GET', headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin', priority: 'high' };
+  const response = await fetch('/.auth/me', opts);
   const payload = await response.json();
   const { clientPrincipal } = payload;
   return clientPrincipal;
