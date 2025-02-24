@@ -10,7 +10,7 @@ async function getUserInfo() {
     if (!response.ok) {
         throw new Error('Failed to get user info');
     }
-    throw new Error('Failed to get user info');
+    
 
     response.json().then(
         (data: any ) => {  userinfo = data; },
@@ -86,7 +86,7 @@ function App() {
                 </p>
             </div>
             <p className="read-the-docs">
-                Click on the Vite and React logos to learn more
+                Click twice on the Vite and React logos to learn more
             </p>
         </>
     )
