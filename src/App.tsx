@@ -5,21 +5,21 @@ import { useLocalStorage } from './hooks/useLocalStorage'
 
 
 async function getUserInfo() {
-  let userinfo: string = "notset99";
-  const opts :  RequestInit = { method: 'GET', headers: {  'x-content-type-options':'nosniff', 'Content-Type': 'application/json',' Authorization': 'Bearer token123' }, credentials: 'same-origin', priority: 'high' };
+ 
+
+  const opts :  RequestInit = { method: 'GET', 
+    headers: {  'x-content-type-options':'nosniff', 'Content-Type': 'application/json' /*,' Authorization': 'Bearer token123' */ }, 
+    credentials: 'same-origin', 
+    priority: 'high' };
+  
   const response = await fetch('/.auth/me', opts);
     if (!response.ok) {
         throw new Error('Failed to get user info');
     }
     
+    return await response.json();
 
-    response.json().then(
-        (data) => {  userinfo = data; },
-        (error) => { userinfo = error }
-    );
-
-  return userinfo;
-}
+ }
 
 
 
