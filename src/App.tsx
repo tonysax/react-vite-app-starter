@@ -77,7 +77,7 @@ function App() {
                        
                         getUserInfo().then(
         
-                            (data) => {setUserInfo(data);}, 
+                            (data) => {setUserInfo(data.userDetails );}, 
                             (error) => {setUserInfo("error"); console.log(error);} 
                         );                    
 
@@ -89,7 +89,7 @@ function App() {
                 </button>
                 <p>
 
-                 {userinfo}
+                    {userinfo}
                     
                 </p>
                 <p>
