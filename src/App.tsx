@@ -31,9 +31,9 @@ function App() {
     const incrementCount = () =>
         setCount((previousCount: number) => previousCount + 1);
 
-    /*
+   
     const [userinfo, setUserInfo] = useLocalStorage('userinfo', "notset111")
-    setUserInfo(userinfo+"notset222")    
+      
 
     /*
     getUserInfo().then(
@@ -78,6 +78,7 @@ function App() {
                     onClick={() => {
 
                         setCount(0);
+                        setUserInfo(userinfo+"notset222");
 
                        
 
@@ -87,7 +88,7 @@ function App() {
                 </button>
                 <p>
 
-                 
+                 {userinfo}
                     
                 </p>
                 <p>
