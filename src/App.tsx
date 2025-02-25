@@ -3,7 +3,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { useLocalStorage } from './hooks/useLocalStorage'
 
-/*
+
 async function getUserInfo() {
   let userinfo: string = "notset99";
   const opts :  RequestInit = { method: 'GET', headers: {  'x-content-type-options':'nosniff', 'Content-Type': 'application/json',' Authorization': 'Bearer token123' }, credentials: 'same-origin', priority: 'high' };
@@ -21,7 +21,7 @@ async function getUserInfo() {
   return userinfo;
 }
 
-*/
+
 
 function App() {
     const [count, setCount] = useLocalStorage('count', 0)
@@ -36,11 +36,7 @@ function App() {
       
 
     /*
-    getUserInfo().then(
-        
-        (data) => {setUserInfo(data) },
-        (error) => {setUserInfo(error) }
-        
+    
     )
 
    */
@@ -78,7 +74,12 @@ function App() {
                     onClick={() => {
 
                         setCount(0);
-                        setUserInfo(userinfo+"notset222");
+                       
+                        getUserInfo().then(
+        
+                            (data) => {setUserInfo(data) },
+                            (error) => {setUserInfo(error) }
+                        );                    
 
                        
 
