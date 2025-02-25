@@ -26,7 +26,7 @@ async function getUserInfo() {
 function App() {
     const [count, setCount] = useLocalStorage('count', 0)
 
-    setCount(0)
+  
         
     const incrementCount = () =>
         setCount((previousCount: number) => previousCount + 1);
@@ -74,6 +74,17 @@ function App() {
                     count is {count}
                 </button>
 
+                <button
+                    onClick={() => {
+
+                        setCount(0);
+
+                       
+
+                    }}
+                >
+                    reset 
+                </button>
                 <p>
 
                  
