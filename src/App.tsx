@@ -13,7 +13,7 @@ async function getUserInfo() {
     
 
     response.json().then(
-        (data: any ) => {  userinfo = data; },
+        (data) => {  userinfo = data; },
         (error) => { userinfo = error }
     );
 
@@ -24,17 +24,15 @@ async function getUserInfo() {
 
 function App() {
     const [count, setCount] = useLocalStorage('count', 0)
+    const [userinfo, setUserInfo] = useLocalStorage('userinfo', "notset111");
 
     const incrementCount = () =>
         setCount((previousCount: number) => previousCount + 1);
 
-    let userinfo: string = "notset1111";
-
-   
     getUserInfo().then(
         
-        (data) => {userinfo = data; console.log(userinfo);},
-        (error) => {userinfo = error;}
+        (data) => {setUserInfo(data) },
+        (error) => {setUserInfo(error) }
         
     )
 
@@ -62,13 +60,7 @@ function App() {
 
                         incrementCount();
 
-                        getUserInfo().then(
-        
-                            (data) => {userinfo = data; console.log(userinfo);},
-                            (error) => {userinfo = error;}
-                            
-                        )
-                    
+                       
 
                     }}
                 >
