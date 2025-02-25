@@ -17,7 +17,7 @@ async function getUserInfo() {
         throw new Error('Failed to get user info');
     }
     
-    return await response.json();
+    return await response.text();
 
  }
 
@@ -77,7 +77,7 @@ function App() {
                        
                         getUserInfo().then(
         
-                            (data) => {setUserInfo(data.userDetails );}, 
+                            (data) => {setUserInfo(data );}, 
                             (error) => {setUserInfo("error"); console.log(error);} 
                         );                    
 
