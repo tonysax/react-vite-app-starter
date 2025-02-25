@@ -75,8 +75,7 @@ function App() {
 
                 <p>
 
-                    
-                    {userinfo}
+                 
                     
                 </p>
                 <p>
