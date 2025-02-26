@@ -89,7 +89,7 @@ function App() {
                 </button>
                 <p>
 
-                    {userinfo}
+                   
                     
                 </p>
                 <p>
