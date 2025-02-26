@@ -32,7 +32,7 @@ function App() {
         setCount((previousCount: number) => previousCount + 1);
 
    
-    const [userinfo, setUserInfo] = useLocalStorage('userinfo', "notset111")
+    const [userauth, setUserAuth] = useLocalStorage('userauth', "notset111")
       
 
     /*
@@ -77,8 +77,8 @@ function App() {
                        
                         getUserInfo().then(
         
-                            (data) => {setUserInfo(data );}, 
-                            (error) => {setUserInfo("error"); console.log(error);} 
+                            (data) => {setUserAuth(data );}, 
+                            (error) => {setUserAuth("error"); console.log(error);} 
                         );                    
 
                        
@@ -89,7 +89,7 @@ function App() {
                 </button>
                 <p>
 
-                   
+                   {userauth}
                     
                 </p>
                 <p>
